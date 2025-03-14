@@ -24,7 +24,7 @@ class Motorbike extends Vehicle {
     topSpeed: number,
     wheels: Wheel[] = []
   ) {
-    super(vin, make, model, year, weight);
+    super();
 
     this.vin = vin;
     this.color = color;

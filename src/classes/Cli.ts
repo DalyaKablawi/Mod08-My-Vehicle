@@ -176,8 +176,8 @@ class Cli {
           answers.model,
           parseInt(answers.year),
           parseInt(answers.weight),
-          parseInt(answers.topSpeed),
-          parseInt(answers.towingCapacity)
+          answers.topSpeed,
+          answers.towingCapacity
         );
         this.vehicles.push(truck);
         this.selectedVehicleVin = truck.vin;
@@ -368,22 +368,19 @@ class Cli {
               this.vehicles[i].reverse();
             }
           }
-        }
-        else if (answers.action === "Tow a vehicle") {
-          if (this.selectedVehicle instanceof Truck) {
-            this.findVehicleToTow(this.selectedVehicle);
+        } else if (answers.action === "Tow a vehicle") {
+          if (this.vehicles instanceof Truck) {
+            this.findVehicleToTow(this.vehicles);
             return;
           } else {
             console.log("Only if trucks are selected to tow");
           }
-        } 
-        else if(answers.action === "Perform wheelie") {
-          if(this.selectedVehicle instanceof Motorbike) {
-            this.selectedVehicle.wheelie();
+        } else if (answers.action === "Perform wheelie") {
+          if (this.vehicles instanceof Motorbike) {
+            this.vehicles.wheelie();
           } else {
             console.log("Only motorbikes can wheelie");
           }
-
         }
         // TODO: add statements to perform the tow action only if the selected vehicle is a truck. Call the findVehicleToTow method to find a vehicle to tow and pass the selected truck as an argument. After calling the findVehicleToTow method, you will need to return to avoid instantly calling the performActions method again since findVehicleToTow is asynchronous.
         // TODO: add statements to perform the wheelie action only if the selected vehicle is a motorbike

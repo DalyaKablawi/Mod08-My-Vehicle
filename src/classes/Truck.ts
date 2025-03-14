@@ -27,7 +27,7 @@ class Truck extends Vehicle implements AbleToTow {
     wheels: Wheel[],
     towingCapacity: number
   ) {
-    super(vin, color, make, model, year, weight, topSpeed);
+    super();
     this.towingCapacity = towingCapacity;
 
     if (wheels.length !== 4) {
